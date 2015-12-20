@@ -1,0 +1,96 @@
+#+TITLE: Hacking Guide for deepin
+
+为了让全世界更多优秀的人参与到deepin的开发过程中，必须有一个更明确更
+开放的规范。这份hacking guide会尽快完善。他的创造过程也是deepin的一次成长。
+这里更多的不是技术问题，而是决策问题。避免猜测，导致不一致的风格引起
+困惑。
+
+We wish everyone Happy hacking in deepin.
+
+* 如何编写优秀的commit信息 ?
+
+** 基本格式
+注意: commit信息必须使用英文进行编写。
+
+#+begin_example
+简单的描述下这个commit改变了什么.(不超过50个字)
+<若有正文则此处*必须*空一行>
+
+如果有更细致的描述就写在这里。每一行不要超过72个字。
+这里应该描述为什么要这样做以及是如何
+
+<若正文需要可以选择空行>
+正文内容可以使用 '-'，'**'等非常通用的标记 . 但标题中不允许出现。
+
+Resolves: bug描述的具体地址.
+See also: 其他CL链接或bug链接。　对某些功能或bug有影响
+#+end_example
+
+关于链接有两点需要注意
+1. 应使用可以直接访问到的地址。不可以是一个bugid或CL id号。　
+2. 链接的访问权限不应该高于此commit的访问权限。简单的说就是能看到commit的人也需要可以访问到commit中的链接。
+
+** 基本原则
+"基本格式"看起来非常简单。但仅仅达到基本格式的要求依旧写不出好的commit。但只要我们遵循以下7条原则，基本很难
+写出差的commit. 更详细的参考资料 [[http://chris.beams.io/posts/git-commit/][7条原则]]
+
+1. Separate subject from body with a blank line
+
+2. Limit the subject line to 50 characters
+
+3. Capitalize the subject line
+
+4. Do not end the subject line with a period
+
+5. Use the imperative mood in the subject line
+
+6. Wrap the body at 72 characters
+
+7. Use the body to explain what and why vs. how
+
+
+第3,4条，说的是一个简单的事实:第一行是标题，标题首字母大写，标题不是句子不需要句号。
+
+第5条，使用祈使句 非常非常重要.　简单的说，第一个动词用原型，不要使用ing或ed的形式。
+
+第7条，重点描述做了什么以及为何要这样做而不是那样做。代码的diff会告诉后来者你选择的方式是怎么做的。但代码
+无法记录做这个change时候的决策。
+
+** 推荐玩法
+遵循7条基本原则后的commit已经看上去不错了。但还有很多方式可以让我们更容易更自然的写出优秀的commit
+
+- 不要使用 git commit -m <msg>
+  让编辑器来保障你不会犯丢人的错误吧。
+
+- 在commit的编辑器中开启拼写检查。伙计，全世界都盯着在，想你这么厉害的人不想被人翻老底吧。
+
+- 使用git add -p 或者 magit 来方便快捷的对一个文件的部分区域进行提交。
+  绝大多时候写不出第一行就是因为一次提交过多了。让你的commit更加原子性吧。
+
+- 参考动词
+  - Fix
+  - Release
+  - Change
+  - Remove
+  - Add
+  - Implement
+  - Enable
+  - Improve
+  - Refactor
+  - Update
+  - Make
+  - Reduce
+
+** 参考文档
+- https://github.com/erlang/otp/wiki/Writing-good-commit-messages
+- http://git-scm.com/book/ch5-2.html
+- http://www.freshconsulting.com/atomic-commits/
+- https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message
+- https://news.ycombinator.com/item?id=10212582
+
+
+* (TODO) How can I get all of projects which used for building deepin ?
+
+* (TODO) Which branch should I use ?
+
+* (TODO) How I issue a problem ?

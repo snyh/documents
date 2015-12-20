@@ -1,0 +1,5 @@
+* Document category currently.
+- tips
+- slides
+- draft documents for official, mainly for deepin
+- TODOs
